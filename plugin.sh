@@ -99,6 +99,89 @@ if [ "$y" = "y" ]; then
 sleep 3
 echo "Main plugin file $name.java created"
 sleep 3
+
+  cd ..
+  cd ..
+  cd ..
+  mkdir resources
+  cd resources
+  echo "Do you have a different ingame name for the plugin?(y/n)(Only say no if your plugin name doesn't have any special characters or spaces"
+  read pluy
+  if [ "$pluy" = "y" ]; then
+    sleep 3
+    echo "Enter the different ingame name for your plugin"
+    read pluname
+
+  sleep 3
+  echo "What is the description of your plugin for plugin.yml"
+  read description
+  sleep 3
+  echo "Who are the authors of your plugin"
+  sleep 3
+  read authors
+  sleep 3
+  echo "Does your plugin have commands?(y/n)"
+  read comand
+  sleep 3
+  if [ "$comand" = "y" ]; then
+    echo "Since it is hard to compensate for every command your plugin might need, see https://stacknests.com/how-to-make-minecraft-plugins for info on how to add commands to plugin.yml"
+
+
+    fi
+
+
+sleep 3
+echo "Creating plugin.yml"
+echo "name: $pluname
+      version: '1.0.0'
+      main: com.$package.$name
+      api-version: '1.21'
+      description: $description
+      authors: [$authors]" > plugin.yml
+           sleep 3
+           echo "Done creating plugin.yml"
+           sleep 3
+           echo "Congrats, the plugin is done! Install Maven and get an IDE like intellij, then begin writing some code!"
+
+else
+    sleep 3
+    echo "Then the name of the plugin will be the ingame name"
+    sleep 3
+    echo "What is the description of your plugin for plugin.yml"
+    read description
+    sleep 3
+    echo "Who are the authors of your plugin"
+    sleep 3
+    read authors
+    sleep 3
+    echo "Does your plugin have commands?(y/n)"
+    read comand
+    sleep 3
+    if [ "$comand" = "y" ]; then
+      echo "Since it is hard to compensate for every command your plugin might need, see https://stacknests.com/how-to-make-minecraft-plugins for info on how to add commands to plugin.yml"
+
+
+      fi
+
+
+  sleep 3
+  echo "Creating plugin.yml"
+  echo "name: $name
+        version: '1.0.0'
+        main: com.$package.$name
+        api-version: '1.21'
+        description: $description
+        authors: [$authors]" > "plugin.yml"
+     sleep 3
+     echo "Done creating plugin.yml"
+     sleep 3
+     echo "Congrats, the plugin is done! Install Maven and get an IDE like intellij, then begin writing some code!"
+
+
+  fi
+
+
+
 else
     sleep 3
     echo "Package name will be same as plugin name!"
@@ -167,15 +250,18 @@ else
 
 
 sleep 3
-echo "Ok then no commands"
-sleep 3
 echo "Creating plugin.yml"
 echo "name: $pluname
       version: '1.0.0'
       main: com.$name.$name
       api-version: '1.21'
       description: $description
-      authors: [$authors]"
+      authors: [$authors]" > plugin.yml
+           sleep 3
+           echo "Done creating plugin.yml"
+           sleep 3
+           echo "Congrats, the plugin is done! Install Maven and get an IDE like intellij, then begin writing some code!"
+
 else
     sleep 3
     echo "Then the name of the plugin will be the ingame name"
